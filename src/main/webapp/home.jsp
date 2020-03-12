@@ -17,10 +17,10 @@
 <body bgcolor = "black" width = "100%">
 <br>
 <center><form method="post" action="/saveDetails"  align = "center">   
-   <font face = "Georgia" size = "5" color = "grey"> How much would you like to borrow?  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </font><input type="number" name="lamount"><font face = "Georgia" size = "5" color = "grey">&nbsp &pound</font><br><br>
-   <font face = "Georgia" size = "5" color = "grey"> Annual Interest Rate &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </font><input type="number" name="annrate" step=".01"><font face = "Georgia" size = "5" color = "grey"> &nbsp %</font><br><br>
-    <font face = "Georgia" size = "5" color = "grey">How long would you like to borrow it for? &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </font><input type="number" name="lperiod"><font face = "Georgia" size = "5" color = "grey"> &nbsp months</font><br><br>
-    <input type="image" src="submit2.png" value="Submit"  align="middle" width="80" height="30">
+   <font face = "Georgia" size = "5" color = "grey"> How much would you like to borrow?  &nbsp </font><input type="number" name="lamount"><font face = "Georgia" size = "5" color = "grey">&nbsp &pound</font><br><br>
+   <font face = "Georgia" size = "5" color = "grey"> Annual Interest Rate &nbsp</font><input type="number" name="annrate" step=".01"><font face = "Georgia" size = "5" color = "grey"> &nbsp %</font><br><br>
+   <font face = "Georgia" size = "5" color = "grey">How long would you like to borrow it for? &nbsp</font><input type="number" name="lperiod"><font face = "Georgia" size = "5" color = "grey"> &nbsp months</font><br><br>
+   <input type="image" src="submit2.png" value="Submit"  align="middle" width="80" height="30">
 </form>
 </center>
 </body>
