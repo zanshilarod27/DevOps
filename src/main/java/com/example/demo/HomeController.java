@@ -22,8 +22,8 @@ public class HomeController {
 	{
 		return "home.jsp";
 	}
+	//Creating an arraylist of type loan - which is my class 
     ArrayList<loan> listdetails = new ArrayList<loan>();
-    //List<ArrayList<loan>> listdet = new  ArrayList<ArrayList<loan>>();
     
 	@PostMapping("/saveDetails")
     public String loan_data(@RequestParam("lamount") double lamount,
@@ -31,59 +31,48 @@ public class HomeController {
                               @RequestParam("lperiod") int lperiod,
                               ModelMap modelMap) {
 		listdetails.clear();
-        // write your code to save details
-        modelMap.put("lamount", lamount);
-        modelMap.put("annrate", annrate);
-        modelMap.put("lperiod", lperiod);
-        
-        
-        System.out.println("loan amount : " + lamount);
-        System.out.println("annual rate" + annrate);
-        System.out.println("lperiod" + lperiod);
+        // saving the details input by the user
+        modelMap.put("lamount", lamount);//loan amount
+        modelMap.put("annrate", annrate);//annual interest rate
+        modelMap.put("lperiod", lperiod);//loan period
         
         for (int i = 1; i <= lperiod; i++) {
         	
         int no = i;
         String number = df2.format(no);
-        
-        
+             
         double annrate1 = annrate/100.0;
-        System.out.println("annrate1 : " + annrate1);
         double annualrate = annrate1/12;
-        System.out.println("annualrate : " + annualrate);
         double a = 1 + annualrate;
-        System.out.println("a : " + a);
         double b = lperiod;
-        System.out.println("b : " + b);
         double exp = Math.pow(a, b);
-        System.out.println("exp : " + exp);
         double pay1 = annualrate * lamount * exp;
-        System.out.println("pay1 : " + pay1);
         double pay2 = exp - 1;
-        System.out.println("pay2 : " + pay2);
         double pay = pay1/pay2;
-        System.out.println("pay : " + pay);
+        
+        //monthly payment details
         String paymount = df.format(pay);
-        System.out.println("Paymount : " + paymount);
         
         double a1 = 1 + annualrate;
         double a2 = -1-lperiod+no;
         double exp1 = Math.pow(a1,a2);
         double principle = pay * exp1;
+        
+        //monthly principle amount
         String pp = df.format(principle);
-        System.out.println("pp : " + pp);
         
         double interest1 = pay - principle;
+        //monthly interest amount
         String interest = df.format(interest1);
-        System.out.println("interest : " + interest);
         
         double outbal1 = (interest1/annualrate) - principle;
+        //monthly outstanding balance
         String outbal = df.format(outbal1);
-        System.out.println("outbal : " + outbal);
         
     	listdetails.add(new loan(number,paymount,pp,interest,outbal));
     		
         }
+        //passing the values
         modelMap.addAttribute("listpayment",listdetails);
         return "loan.jsp";
                   
